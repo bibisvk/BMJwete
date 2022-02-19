@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'untitled1';
+  title = 'untitled';
+  dec: any;
+  bin: number = 0;
+  spolu: number = 0;
+  form: FormGroup;
+
+  constructor() {
+    this.form = new FormGroup({
+      dec: new FormControl(),
+      bin: new FormControl(),
+      spolu: new FormControl()
+    })
+  }
+
+  public prepocitaj():void{
+    this.spolu = this.dec + this.bin;
+  }
+
 }
