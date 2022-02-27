@@ -1,19 +1,12 @@
-<form [formGroup]="form">
-  <div>
-    dec
-    <input formControlName="dec">
-    <br>
-    bin
-    <input type="checkbox">
-    <input type="checkbox">
-    <input type="checkbox">
-    <input type="checkbox">
-    <input type="checkbox">
-    <input type="checkbox">
-    <input type="checkbox">
-    <input type="checkbox">
-    <br>
-    dsfasc
-    spolu: {{form.value.dec}}
-  </div>
+<form [formGroup]="convertor">
+  DEC: <input type="number" formControlName="dec" min="0" max="255" (change)="toBin()"> <br><br>
+  BIN: <pre> 7  6  5  4  3  2  1  0</pre>
+  <input type="checkbox" formControlName="b7" (change)="toDec()">
+  <input type="checkbox" formControlName="b6" (change)="toDec()">
+  <input type="checkbox" formControlName="b5" (change)="toDec()">
+  <input type="checkbox" formControlName="b4" (change)="toDec()">
+  <input type="checkbox" formControlName="b3" (change)="toDec()">
+  <input type="checkbox" formControlName="b2" (change)="toDec()">
+  <input type="checkbox" formControlName="b1" (change)="toDec()">
+  <input type="checkbox" formControlName="b0" (change)="toDec()">
 </form>
