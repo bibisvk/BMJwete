@@ -1,19 +1,39 @@
 
+<button (click)="nastavMenu(menu.OSOBY);">OSOBY</button>
+<button (click)="nastavMenu(menu.KNIHY);">KNIHY</button>
+<button (click)="nastavMenu(menu.VYPOZICKY);">VYPOZICKY</button>
 
-<form [formGroup]="convertor">
+<div *ngIf="aktMenu == menu.OSOBY" >
+  <h1>osoby</h1>
+  <br>
+  id: <input [(ngModel)]="osoba.o_id"><br>
+  meno: <input [(ngModel)]="osoba.meno"><br>
+  priezvisko: <input [(ngModel)]="osoba.priezvisko"><br>
+  <button (click)="pridajOsobu();">pridaj</button><br>
+  zoznam: <br>
 
-  dec: <input type="number" formControlName="dec0" min="0" max="255" (change)="toBin()"> <br>
-  <pre>bin: 128 64 32 16 8 4  2  1</pre>
+  <table *ngIf="zobraz">
+    <tr>
+      <th>ID</th>
+      <th>Meno</th>
+      <th>Priezvisko</th>
+    </tr>
+    <tr *ngFor="let o of osoby">
+      <td >{{o.o_id}}</td>
+      <td >{{o.meno}}</td>
+      <td>{{o.priezvisko}}</td>
+    </tr>
+  </table>
 
-  <div class="left">
-  <input type="checkbox" formControlName="bin7" (change)="toDec()">
-  <input type="checkbox" formControlName="bin6" (change)="toDec()">
-  <input type="checkbox" formControlName="bin5" (change)="toDec()">
-  <input type="checkbox" formControlName="bin4" (change)="toDec()">
+</div>
 
-  <input type="checkbox" formControlName="bin3" (change)="toDec()">
-  <input type="checkbox" formControlName="bin2" (change)="toDec()">
-  <input type="checkbox" formControlName="bin1" (change)="toDec()">
-  <input type="checkbox" formControlName="bin0" (change)="toDec()">
-  </div>
-</form>
+<div *ngIf="aktMenu == menu.KNIHY">
+  <h1>knihy</h1>
+
+</div>
+<div *ngIf="aktMenu == menu.VYPOZICKY">
+  <h1>vypozicky</h1>
+
+
+</div>
+
