@@ -1,12 +1,19 @@
+
+
 <form [formGroup]="convertor">
-  DEC: <input type="number" formControlName="dec" min="0" max="255" (change)="toBin()"> <br><br>
-  BIN: <pre> 7  6  5  4  3  2  1  0</pre>
-  <input type="checkbox" formControlName="b7" (change)="toDec()">
-  <input type="checkbox" formControlName="b6" (change)="toDec()">
-  <input type="checkbox" formControlName="b5" (change)="toDec()">
-  <input type="checkbox" formControlName="b4" (change)="toDec()">
-  <input type="checkbox" formControlName="b3" (change)="toDec()">
-  <input type="checkbox" formControlName="b2" (change)="toDec()">
-  <input type="checkbox" formControlName="b1" (change)="toDec()">
-  <input type="checkbox" formControlName="b0" (change)="toDec()">
+
+  dec: <input type="number" formControlName="dec0" min="0" max="255" (change)="toBin()"> <br>
+  <pre>bin: 128 64 32 16 8 4  2  1</pre>
+
+  <div class="left">
+  <input type="checkbox" formControlName="bin7" (change)="toDec()">
+  <input type="checkbox" formControlName="bin6" (change)="toDec()">
+  <input type="checkbox" formControlName="bin5" (change)="toDec()">
+  <input type="checkbox" formControlName="bin4" (change)="toDec()">
+
+  <input type="checkbox" formControlName="bin3" (change)="toDec()">
+  <input type="checkbox" formControlName="bin2" (change)="toDec()">
+  <input type="checkbox" formControlName="bin1" (change)="toDec()">
+  <input type="checkbox" formControlName="bin0" (change)="toDec()">
+  </div>
 </form>
