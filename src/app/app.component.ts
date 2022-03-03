@@ -9,6 +9,8 @@ enum MENU {OSOBY,KNIHY,VYPOZICKY}
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  /*==================================*/
   zobraz = false;
 
   menu = MENU;
@@ -27,4 +29,22 @@ export class AppComponent {
     this.aktMenu = m;
   }
 
+  /*==================================*/
+
+
+
+  /*==================================*/
+
+  zobrazVypozicku = false;
+
+  vypozicky: any = [];
+  vypozicka = {v_id: "", kniha: "", pouzivatel: ""};
+
+  public pridajVypozicku(){
+    if( this.vypozicka.v_id && this.vypozicka.kniha && this.vypozicka.pouzivatel) {
+      let v = {v_id: this.vypozicka.v_id, kniha: this.vypozicka.kniha, pouzivatel: this.vypozicka.pouzivatel};
+      this.vypozicky.push(v);
+      this.zobrazVypozicku = true;
+    }
+  }
 }
