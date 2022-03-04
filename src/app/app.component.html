@@ -32,6 +32,29 @@
 <div *ngIf="aktMenu == menu.KNIHY">
   <h1>knihy</h1>
 
+  <br>
+  id: <input [(ngModel)]="kniha.k_id"><br>
+  nazov: <input [(ngModel)]="kniha.nazov"><br>
+  autor: <input [(ngModel)]="kniha.autor"><br>
+  pocet: <input [(ngModel)]="kniha.pocet"><br>
+  <button (click)="pridajKnihu();">pridaj</button><br>
+  zoznam: <br>
+
+  <table *ngIf="zobraz">
+    <tr>
+      <th>ID</th>
+      <th>Nazov</th>
+      <th>Autor</th>
+      <th>Pocet</th>
+    </tr>
+    <tr *ngFor="let k of knihy">
+      <td >{{k.k_id}}</td>
+      <td >{{k.nazov}}</td>
+      <td>{{k.autor}}</td>
+      <td>{{k.pocet}}</td>
+    </tr>
+  </table>
+
 </div>
 
 <!------------------------------------------------>
