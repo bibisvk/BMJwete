@@ -25,13 +25,23 @@ export class AppComponent {
     this.zobraz = true;
   }
 
+
   public nastavMenu(m: MENU){
     this.aktMenu = m;
   }
 
   /*==================================*/
 
+  zobrazKnihu = false;
 
+  knihy: any = [];
+  kniha = {k_id: "1", nazov: "abc", autor: "def", pocet: "100"};
+
+  public pridajKnihu(){
+    let k = {k_id: this.kniha.k_id, nazov: this.kniha.nazov, autor: this.kniha.autor, pocet: this.kniha.pocet};
+    this.knihy.push(k);
+    this.zobrazKnihu = true;
+  }
 
   /*==================================*/
 
