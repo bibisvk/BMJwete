@@ -8,13 +8,19 @@ import { OsobaStrankaComponent } from './osoba-stranka/osoba-stranka.component';
 import { OsobyZoznamComponent } from './osoby-zoznam/osoby-zoznam.component';
 import {RouterModule} from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
+import { KnihaFormularComponent } from './kniha-formular/kniha-formular.component';
+import { KnihaStrankaComponent } from './kniha-stranka/kniha-stranka.component';
+import { KnihyZoznamComponent } from './knihy-zoznam/knihy-zoznam.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OsobaFormularComponent,
     OsobaStrankaComponent,
-    OsobyZoznamComponent
+    OsobyZoznamComponent,
+    KnihaFormularComponent,
+    KnihaStrankaComponent,
+    KnihyZoznamComponent
   ],
     imports: [
         BrowserModule,
