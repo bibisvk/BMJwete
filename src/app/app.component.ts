@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import {Router} from "@angular/router";
 
 enum MENU {OSOBY,KNIHY,VYPOZICKY}
 
@@ -10,7 +10,24 @@ enum MENU {OSOBY,KNIHY,VYPOZICKY}
 })
 export class AppComponent {
 
-  /*==================================*/
+  menu = MENU;
+
+  constructor(private router: Router) {
+  }
+
+  otvorMenu(m: MENU) {
+    if (m == MENU.OSOBY) {
+      this.router.navigate(['/osoba']);
+    }
+    if (m == MENU.KNIHY) {
+      this.router.navigate(['/kniha']);
+    }
+    if (m == MENU.VYPOZICKY) {
+      this.router.navigate(['/vypozicka']);
+    }
+  }
+
+  /*==================================
   zobraz = false;
 
   menu = MENU;
@@ -26,11 +43,6 @@ export class AppComponent {
   }
 
 
-  public nastavMenu(m: MENU){
-    this.aktMenu = m;
-  }
-
-  /*==================================*/
 
   zobrazKnihu = false;
 
@@ -43,7 +55,7 @@ export class AppComponent {
     this.zobrazKnihu = true;
   }
 
-  /*==================================*/
+
 
   zobrazVypozicku = false;
 
@@ -57,4 +69,5 @@ export class AppComponent {
       this.zobrazVypozicku = true;
     }
   }
+  /*==================================*/
 }

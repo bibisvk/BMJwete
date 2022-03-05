@@ -1,33 +1,11 @@
 
-<button (click)="nastavMenu(menu.OSOBY);">OSOBY</button>
-<button (click)="nastavMenu(menu.KNIHY);">KNIHY</button>
-<button (click)="nastavMenu(menu.VYPOZICKY);">VYPOZICKY</button>
-
-<div *ngIf="aktMenu == menu.OSOBY" >
-  <h1>osoby</h1>
-  <br>
-  id: <input [(ngModel)]="osoba.o_id"><br>
-  meno: <input [(ngModel)]="osoba.meno"><br>
-  priezvisko: <input [(ngModel)]="osoba.priezvisko"><br>
-  <button (click)="pridajOsobu();">pridaj</button><br>
-  zoznam: <br>
-
-  <table *ngIf="zobraz">
-    <tr>
-      <th>ID</th>
-      <th>Meno</th>
-      <th>Priezvisko</th>
-    </tr>
-    <tr *ngFor="let o of osoby">
-      <td >{{o.o_id}}</td>
-      <td >{{o.meno}}</td>
-      <td>{{o.priezvisko}}</td>
-    </tr>
-  </table>
-
-</div>
-
-<!------------------------------------------------>
+<button (click)="otvorMenu(menu.OSOBY);">OSOBY</button>
+<button (click)="otvorMenu(menu.KNIHY);">KNIHY</button>
+<button (click)="otvorMenu(menu.VYPOZICKY);">VYPOZICKY</button>
+<br>
+<br>
+<router-outlet></router-outlet>
+<!------------------------------------------------
 
 <div *ngIf="aktMenu == menu.KNIHY">
   <h1>knihy</h1>
@@ -56,7 +34,7 @@
   </table>
 </div>
 
-<!------------------------------------------------>
+
 
 <div *ngIf="aktMenu == menu.VYPOZICKY">
   <h1>vypozicky</h1>
@@ -87,3 +65,4 @@
 
 </div>
 
+<----------------------------------------------->
