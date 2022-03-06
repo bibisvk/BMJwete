@@ -7,9 +7,7 @@ const routes: Routes = [
   {
     path: 'osoba',
     component: OsobaStrankaComponent
-  }
-]
-const routeskniha: Routes = [
+  },
   {
     path: 'kniha',
     component: KnihaStrankaComponent
@@ -21,9 +19,5 @@ const routeskniha: Routes = [
   exports: [RouterModule]
 })
 
-@NgModule({
-  imports: [RouterModule.forRoot(routeskniha)],
-  exports: [RouterModule]
-})
 export class AppRoutingModule {
 }
