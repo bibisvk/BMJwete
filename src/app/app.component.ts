@@ -11,6 +11,7 @@ enum MENU {OSOBY,KNIHY,VYPOZICKY}
 export class AppComponent {
 
   menu = MENU;
+  title: string | undefined;
 
   constructor(private router: Router) {
   }
