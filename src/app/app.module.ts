@@ -8,13 +8,20 @@ import { OsobaStrankaComponent } from './osoba-stranka/osoba-stranka.component';
 import { OsobyZoznamComponent } from './osoby-zoznam/osoby-zoznam.component';
 import {RouterModule} from "@angular/router";
 import { AppRoutingModule } from './app-routing.module';
+import {VypozickaFormularComponent} from "./vypozicka-formular/vypozicka-formular.component";
+import {VypozickyStrankaComponent} from "./vypozicky-stranka/vypozicky-stranka.component";
+import {VypozickyZoznamComponent} from "./vypozicky-zoznam/vypozicky-zoznam.component";
 
 @NgModule({
   declarations: [
     AppComponent,
     OsobaFormularComponent,
     OsobaStrankaComponent,
-    OsobyZoznamComponent
+    OsobyZoznamComponent,
+
+    VypozickaFormularComponent,
+    VypozickyStrankaComponent,
+    VypozickyZoznamComponent
   ],
     imports: [
         BrowserModule,
