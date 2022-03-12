@@ -16,6 +16,7 @@ export class OsobaFormularComponent {
     }
   }
 
+
   @Output()
   pridajOsobu = new EventEmitter<Osoba>();
 
