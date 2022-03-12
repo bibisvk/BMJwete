@@ -1,6 +1,19 @@
-id:
-<input [(ngModel)]="osoba.o_id"><br>
-meno:
-<input [(ngModel)]="osoba.meno"><br>
-priezvisko:
-<input [(ngModel)]="osoba.priezvisko"><br>
+<h1>Osoby - formular</h1>
+
+<form [formGroup]="form">
+
+  <label>Meno:
+    <input formControlName="meno">
+  </label>
+  <br>
+
+  <label>Priezvisko:
+    <input formControlName="priezvisko">
+  </label>
+  <br>
+
+  <button (click)="pridaj()" *ngIf="form.value.id === null">pridaj</button>
+  <button (click)="uprav()" *ngIf="form.value.id !== null">uprav</button>
+  <button (click)="zrus()">zrus</button>
+
+</form>

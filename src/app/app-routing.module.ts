@@ -3,6 +3,7 @@ import {OsobaStrankaComponent} from "./osoba-stranka/osoba-stranka.component";
 import {KnihaStrankaComponent} from "./kniha-stranka/kniha-stranka.component";
 import {NgModule} from "@angular/core";
 import {VypozickyStrankaComponent} from "./vypozicky-stranka/vypozicky-stranka.component";
+import {MenuComponent} from './menu/menu.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'kniha',
     component: KnihaStrankaComponent
+  },
+  {
+    path: '',
+    component: MenuComponent
   }
 ]
 

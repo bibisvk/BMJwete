@@ -14,6 +14,8 @@ import {VypozickyZoznamComponent} from "./vypozicky-zoznam/vypozicky-zoznam.comp
 import {KnihaFormularComponent} from "./kniha-formular/kniha-formular.component";
 import {KnihaStrankaComponent} from "./kniha-stranka/kniha-stranka.component";
 import {KnihyZoznamComponent} from "./knihy-zoznam/knihy-zoznam.component";
+import { MenuComponent } from './menu/menu.component';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -29,14 +31,16 @@ import {KnihyZoznamComponent} from "./knihy-zoznam/knihy-zoznam.component";
 
     VypozickaFormularComponent,
     VypozickyStrankaComponent,
-    VypozickyZoznamComponent
+    VypozickyZoznamComponent,
+    MenuComponent
   ],
     imports: [
         BrowserModule,
         ReactiveFormsModule,
         FormsModule,
         RouterModule,
-        AppRoutingModule
+        AppRoutingModule,
+        HttpClientModule
     ],
   providers: [],
   bootstrap: [AppComponent]
