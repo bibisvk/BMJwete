@@ -16,7 +16,6 @@ export class OsobaFormularComponent {
     }
   }
 
-
   @Output()
   pridajOsobu = new EventEmitter<Osoba>();
 
@@ -26,10 +25,6 @@ export class OsobaFormularComponent {
   form: FormGroup;
 
   constructor() {
-    this.vytvorForm();
-  }
-
-  private vytvorForm(): void {
     this.form = new FormGroup({
       id: new FormControl(null),
       meno: new FormControl(null),
@@ -38,9 +33,9 @@ export class OsobaFormularComponent {
   }
 
   private naplnForm(osoba: Osoba): void {
-    this.form.controls.id.setValue(osoba.id);
-    this.form.controls.meno.setValue(osoba.meno);
-    this.form.controls.priezvisko.setValue(osoba.priezvisko);
+    this.form.controls["id"].setValue(osoba.id);
+    this.form.controls["meno"].setValue(osoba.meno);
+    this.form.controls["priezvisko"].setValue(osoba.priezvisko);
   }
 
   public pridaj(): void {
@@ -54,7 +49,9 @@ export class OsobaFormularComponent {
   }
 
   public zrus(): void {
+    // @ts-ignore
     this.osoba = undefined;
     this.form.reset();
   }
+
 }

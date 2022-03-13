@@ -1,6 +1,6 @@
 <h1>Osoby</h1>
 
-<app-osoba-formular [osoba]="osobaNaUpravu"
+<app-osoba-formular [osoba]="osobaNaUpravu!"
                     (pridajOsobu)="pridaj($event)"
                     (upravOsobu)="uprav($event)">
 </app-osoba-formular>
@@ -8,6 +8,7 @@
 <app-osoby-zoznam [osoby]="osoby"
                   (upravOsobu)="upravZoZoznamu($event)"
                   (zmazOsobu)="zmazZoZoznamu($event)">
+
 </app-osoby-zoznam>
 
 <br>
