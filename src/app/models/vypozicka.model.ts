@@ -1,6 +1,6 @@
 export class Vypozicka {
 
-  v_id: number;
+  v_id?: String;
   kniha: string;
   pouzivatel: string;
 
