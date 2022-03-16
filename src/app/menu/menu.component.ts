@@ -18,6 +18,9 @@ export class MenuComponent {
     if (m === MENU.OSOBY) {
       this.router.navigate(['/osoba']);
     }
+    if (m === MENU.KNIHY) {
+      this.router.navigate(['/kniha']);
+    }
   }
 
 }

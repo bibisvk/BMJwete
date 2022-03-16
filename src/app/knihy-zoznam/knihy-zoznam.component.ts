@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {Kniha} from "../models/kniha.model";
 
 @Component({
@@ -8,8 +8,7 @@ import {Kniha} from "../models/kniha.model";
 })
 export class KnihyZoznamComponent {
 
-  knihy: Kniha[] = []
-
-  constructor() { }
+  @Input()
+  knihy: Kniha[] = [];
 
 }

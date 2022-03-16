@@ -1,5 +1,6 @@
-import { Component} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Kniha} from "../models/kniha.model";
+import {FormControl, FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-kniha-formular',
@@ -8,8 +9,37 @@ import {Kniha} from "../models/kniha.model";
 })
 export class KnihaFormularComponent {
 
-  kniha: Kniha = { k_id: 0, nazov: 'kkkk', autor: 'jjjj', pocet: 10 }
+  @Input()
+  set kniha(data: Kniha) {
+    if (data) {
+      this.naplnForm(data);
+    }
+  }
 
-  constructor() { }
+  @Output()
+  pridajKnihu = new EventEmitter<Kniha>();
+
+  form: FormGroup;
+
+  constructor() {
+    this.form = new FormGroup({
+      k_id: new FormControl(null),
+      nazov: new FormControl(null),
+      autor: new FormControl(null),
+      pocet: new FormControl(null)
+    });
+  }
+
+  private naplnForm(kniha: Kniha): void {
+    this.form.controls["id"].setValue(kniha.k_id);
+    this.form.controls["nazov"].setValue(kniha.nazov);
+    this.form.controls["autor"].setValue(kniha.autor);
+    this.form.controls["pocet"].setValue(kniha.pocet);
+  }
+
+  public pridaj(): void {
+    this.pridajKnihu.emit({ k_id: Math.random().toString(), nazov: this.form.value.nazov, autor: this.form.value.autor, pocet: this.form.value.pocet});
+    this.form.reset();
+  }
 
 }

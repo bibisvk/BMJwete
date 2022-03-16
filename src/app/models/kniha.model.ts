@@ -2,7 +2,7 @@ export class Kniha {
 
   nazov: string;
   autor: string;
-  k_id: number;
+  k_id: string;
   pocet: number;
 
   constructor(kniha: Kniha) {

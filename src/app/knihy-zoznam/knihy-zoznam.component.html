@@ -1,3 +1,29 @@
-<div *ngFor="let k of knihy">
-  {{k.k_id}} {{k.nazov}} {{k.autor}} {{k.pocet}}
+<h1>Knihy - zoznam</h1>
+
+<div *ngIf="!knihy || knihy?.length === 0">
+  Zoznam kníh je prázdny.
 </div>
+
+
+<table class="table" *ngIf="knihy.length > 0">
+  <thead>
+  <tr>
+    <th>Nazov</th>
+    <th>Autor</th>
+    <th>Pocet</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let kniha of knihy">
+    <td>{{ kniha.nazov }}</td>
+    <td>{{ kniha.autor }}</td>
+    <td>{{ kniha.pocet }}</td>
+    <td>
+      <button>Upraviť</button>
+      <button>Zmazať</button>
+    </td>
+  </tr>
+  </tbody>
+</table>

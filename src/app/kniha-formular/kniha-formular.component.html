@@ -1,8 +1,22 @@
-id:
-<input [(ngModel)]="kniha.k_id"><br>
-nazov:
-<input [(ngModel)]="kniha.nazov"><br>
-autor:
-<input [(ngModel)]="kniha.autor"><br>
-pocet:
-<input [(ngModel)]="kniha.pocet"><br>
+<h1>Kniha formulár</h1>
+
+<form [formGroup]="form">
+  <label>Nazov:
+    <input formControlName="nazov">
+  </label>
+  <br>
+
+  <label>autor:
+    <input formControlName="autor">
+  </label>
+  <br>
+
+  <label>pocet:
+    <input formControlName="pocet">
+  </label>
+  <br>
+
+  <button (click)="pridaj()" *ngIf="form.value.k_id === null">pridaj</button>
+
+</form>
+
