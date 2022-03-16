@@ -1,6 +1,7 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Kniha} from "../models/kniha.model";
 import {FormControl, FormGroup} from "@angular/forms";
+import {Osoba} from "../models/osoba.model";
 
 @Component({
   selector: 'app-kniha-formular',
@@ -18,6 +19,9 @@ export class KnihaFormularComponent {
 
   @Output()
   pridajKnihu = new EventEmitter<Kniha>();
+
+  @Output()
+  upravKnihu = new EventEmitter<Kniha>();
 
   form: FormGroup;
 
@@ -39,6 +43,16 @@ export class KnihaFormularComponent {
 
   public pridaj(): void {
     this.pridajKnihu.emit({ k_id: Math.random().toString(), nazov: this.form.value.nazov, autor: this.form.value.autor, pocet: this.form.value.pocet});
+    this.form.reset();
+  }
+  public uprav(): void {
+    this.upravKnihu.emit(this.form.value);
+    this.form.reset();
+  }
+
+  public zrus(): void {
+    // @ts-ignore
+    this.kniha = undefined;
     this.form.reset();
   }
 

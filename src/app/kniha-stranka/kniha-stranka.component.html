@@ -1,11 +1,13 @@
 <h1>Knihy</h1>
 
 <app-kniha-formular [kniha]="knihaNaUpravu!"
-                    (pridajKnihu)="pridaj($event)">
-
+                    (pridajKnihu)="pridaj($event)"
+                    (upravKnihu)="uprav($event)">
 </app-kniha-formular>
 
-<app-knihy-zoznam [knihy]="knihy">
+<app-knihy-zoznam [knihy]="knihy"
+                  (upravKnihu)="upravZoZoznamu($event)"
+                  (zmazKnihu)="zmazZoZoznamu($event)">
 
 </app-knihy-zoznam>
 
