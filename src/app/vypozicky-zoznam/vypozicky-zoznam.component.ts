@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Vypozicka} from "../models/vypozicka.model";
 
 @Component({
@@ -8,9 +8,20 @@ import {Vypozicka} from "../models/vypozicka.model";
 })
 export class VypozickyZoznamComponent {
 
-  vypozicky: Vypozicka[] = []
+  @Input()
+  vypozicky: Vypozicka[] = [];
 
-  constructor() { }
+  @Output()
+  upravVypozicku: EventEmitter<Vypozicka> = new EventEmitter<Vypozicka>();
 
+  @Output()
+  zmazVypozicku: EventEmitter<Vypozicka> = new EventEmitter<Vypozicka>();
 
+  uprav(vypozicka: Vypozicka): void {
+    this.upravVypozicku.emit(vypozicka);
+  }
+
+  zmaz(vypozicka: Vypozicka): void {
+    this.zmazVypozicku.emit(vypozicka);
+  }
 }

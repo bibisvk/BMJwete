@@ -1,3 +1,30 @@
-<div *ngFor="let v of vypozicky">
-  {{v.v_id}} {{v.kniha}} {{v.pouzivatel}}
+<h1>Vypozicky - zoznam</h1>
+
+<div *ngIf="!vypozicky || vypozicky?.length === 0">
+  Zoznam Vypoziciek je prázdny.
 </div>
+
+
+<table class="table" *ngIf="vypozicky.length > 0">
+  <thead>
+  <tr>
+    <th>id</th>
+    <th>Kniha</th>
+    <th>Pouzivatel</th>
+    <th></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <tr *ngFor="let vypozicka of vypozicky">
+    <td>{{ vypozicka.v_id }}</td>
+    <td>{{ vypozicka.kniha }}</td>
+    <td>{{ vypozicka.pouzivatel }}</td>
+    <td>
+      <button (click)="uprav(vypozicka)">Upraviť</button>
+      <button (click)="zmaz(vypozicka)">Zmazať</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
