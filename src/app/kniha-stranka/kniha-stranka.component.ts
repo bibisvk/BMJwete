@@ -1,7 +1,7 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {Kniha} from "../models/kniha.model";
-import {Osoba} from "../models/osoba.model";
+
 
 @Component({
   selector: 'app-kniha-stranka',
