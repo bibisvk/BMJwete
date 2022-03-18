@@ -1,25 +1,37 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Osoba} from "../models/osoba.model";
 import {Router} from "@angular/router";
+import {OsobaServiceService} from "../../osoba-service.service";
 
 @Component({
   selector: 'app-osoba-stranka',
   templateUrl: './osoba-stranka.component.html',
   styleUrls: ['./osoba-stranka.component.css']
 })
-export class OsobaStrankaComponent {
+export class OsobaStrankaComponent implements OnInit{
+
   osoby: Osoba[] = [];
 
   osobaNaUpravu?: Osoba;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private osobaService: OsobaServiceService) { }
+
+  ngOnInit(): void {
+    this.osobaService.getOsoby().subscribe(data => {
+      console.log('prislo:', data);
+      this.osoby = data;
+    });
+  }
 
   chodSpat(): void {
     this.router.navigate(['']);
   }
 
   pridaj(osoba: Osoba): void {
-    this.osoby.push(osoba);
+    // this.osoby.push(osoba);
+    this.osobaService.createOsoba(osoba).subscribe( data => {
+      console.log('prislo:', data);
+    });
   }
 
   uprav(osoba: Osoba): void {
