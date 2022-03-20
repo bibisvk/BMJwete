@@ -17,9 +17,16 @@ export class OsobaStrankaComponent implements OnInit{
   constructor(private router: Router, private osobaService: OsobaServiceService) { }
 
   ngOnInit(): void {
+    this.refreshOsob();
+  }
+
+  refreshOsob(): void {
     this.osobaService.getOsoby().subscribe(data => {
       console.log('prislo:', data);
-      this.osoby = data;
+      this.osoby = [];
+      for (const d of data) {
+        this.osoby.push({ id: d.id, meno: d.name, priezvisko: d.name});
+      }
     });
   }
 
@@ -31,6 +38,7 @@ export class OsobaStrankaComponent implements OnInit{
     // this.osoby.push(osoba);
     this.osobaService.createOsoba(osoba).subscribe( data => {
       console.log('prislo:', data);
+      this.refreshOsob();
     });
   }
 

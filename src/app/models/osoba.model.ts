@@ -9,3 +9,15 @@ export class Osoba {
     this.priezvisko = osoba.priezvisko;
   }
 }
+
+export class OsobaZoznam {
+  id?: string;
+  name: string;
+  contact: string;
+
+  constructor(osoba: OsobaZoznam) {
+    this.id = osoba.id;
+    this.name = osoba.name;
+    this.contact = osoba.contact;
+  }
+}
