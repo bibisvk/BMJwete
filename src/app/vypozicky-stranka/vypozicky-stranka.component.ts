@@ -1,27 +1,36 @@
-import { Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {Vypozicka} from "../models/vypozicka.model";
+import {VypozickaService} from "../../vypozicka.service";
 
 @Component({
   selector: 'app-vypozicky-stranka',
   templateUrl: './vypozicky-stranka.component.html',
   styleUrls: ['./vypozicky-stranka.component.css']
 })
-export class VypozickyStrankaComponent{
+export class VypozickyStrankaComponent implements OnInit{
   vypozicky: Vypozicka[] = [];
 
   vypozickaNaUpravu?: Vypozicka;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private vypozickaService: VypozickaService) { }
+
+  ngOnInit(): void {
+    this.vypozickaService.getVypozicky().subscribe(data => {
+      console.log('prislo:', data);
+      this.vypozicky = data;
+    });
+  }
 
   chodSpat(): void {
     this.router.navigate(['']);
   }
 
   pridaj(vypozicka: Vypozicka): void {
-     {
-      this.vypozicky.push(vypozicka);
-    }
+    //  this.vypozicky.push(vypozicka);
+    this.vypozickaService.createVypozicka(vypozicka).subscribe( data => {
+      console.log('prislo:', data);
+    });
   }
 
   uprav(vypozicka: Vypozicka): void {
