@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Router} from "@angular/router";
 import {Kniha} from "../models/kniha.model";
+import {KnihaServiceService} from "../../kniha-service.service";
 
 
 @Component({
@@ -13,7 +14,21 @@ export class KnihaStrankaComponent{
 
   knihaNaUpravu?: Kniha;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private knihaService: KnihaServiceService) { }
+
+  ngOnInit(): void {
+    this.refreshKnih();
+  }
+
+  refreshKnih(): void {
+    this.knihaService.getKnihy().subscribe(data => {
+      console.log('prislo:', data);
+      this.knihy = [];
+      for (const d of data) {
+        this.knihy.push({ k_id: d.id, nazov: d.name, autor: d.name, pocet: d.name});
+      }
+    });
+  }
 
   chodSpat(): void {
     this.router.navigate(['']);
