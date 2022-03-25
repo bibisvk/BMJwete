@@ -1,5 +1,5 @@
 export class Osoba {
-  id?: string;
+  id?: number;
   meno: string;
   priezvisko: string;
 
@@ -11,13 +11,15 @@ export class Osoba {
 }
 
 export class OsobaZoznam {
-  id?: string;
-  name: string;
+  id?: number;
+  firstName: string;
+  lastName: string;
   contact: string;
 
   constructor(osoba: OsobaZoznam) {
     this.id = osoba.id;
-    this.name = osoba.name;
+    this.firstName = osoba.firstName;
+    this.lastName = osoba.lastName;
     this.contact = osoba.contact;
   }
 }
