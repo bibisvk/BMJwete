@@ -12,12 +12,14 @@ export class Osoba {
 
 export class OsobaZoznam {
   id?: number;
-  name: string;
+  firstName: string;
+  lastName: string;
   contact: string;
 
   constructor(osoba: OsobaZoznam) {
     this.id = osoba.id;
-    this.name = osoba.name;
+    this.firstName = osoba.firstName;
+    this.lastName = osoba.lastName;
     this.contact = osoba.contact;
   }
 }

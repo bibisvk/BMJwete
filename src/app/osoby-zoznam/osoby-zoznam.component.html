@@ -8,15 +8,15 @@
 <table class="table" *ngIf="osoby.length > 0">
   <thead>
   <tr>
-    <th>Meno</th>
-    <th>Priezvisko</th>
+    <th>Meno a priezvisko</th>
+    <th>Kontakt</th>
     <th></th>
   </tr>
   </thead>
 
   <tbody>
   <tr *ngFor="let osoba of osoby">
-    <td>{{ osoba.name }}</td>
+    <td>{{ osoba.firstName }} {{osoba.lastName}}</td>
     <td>{{ osoba.contact }}</td>
     <td>
       <button (click)="uprav(osoba.id!)">Upraviť</button>
