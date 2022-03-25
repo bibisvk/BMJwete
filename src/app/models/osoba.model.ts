@@ -1,5 +1,5 @@
 export class Osoba {
-  id?: string;
+  id?: number;
   meno: string;
   priezvisko: string;
 
@@ -11,7 +11,7 @@ export class Osoba {
 }
 
 export class OsobaZoznam {
-  id?: string;
+  id?: number;
   name: string;
   contact: string;
 

@@ -39,7 +39,7 @@ export class OsobaFormularComponent {
   }
 
   public pridaj(): void {
-    this.pridajOsobu.emit({ id: Math.random().toString(), meno: this.form.value.meno, priezvisko: this.form.value.priezvisko});
+    this.pridajOsobu.emit(this.form.value);
     this.form.reset();
   }
 
@@ -49,8 +49,6 @@ export class OsobaFormularComponent {
   }
 
   public zrus(): void {
-    // @ts-ignore
-    this.osoba = undefined;
     this.form.reset();
   }
 
