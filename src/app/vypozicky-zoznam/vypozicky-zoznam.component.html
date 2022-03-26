@@ -1,5 +1,7 @@
-<h1>Vypozicky - zoznam</h1>
-
+<div class="m-5">
+  <div class="d-flex justify-content-center">
+    <h1 class="mb-5">Vypozicky - zoznam</h1>
+  </div>
 <div *ngIf="!vypozicky || vypozicky?.length === 0">
   Zoznam Vypoziciek je prázdny.
 </div>
@@ -21,10 +23,11 @@
     <td>{{ vypozicka.kniha }}</td>
     <td>{{ vypozicka.pouzivatel }}</td>
     <td>
-      <button (click)="uprav(vypozicka)">Upraviť</button>
-      <button (click)="zmaz(vypozicka)">Zmazať</button>
+      <button class="m-2 btn-warning" (click)="uprav(vypozicka.v_id!)">Upraviť</button>
+      <button class="m-2 btn-warning" (click)="zmaz(vypozicka.v_id!)">Zmazať</button>
     </td>
   </tr>
   </tbody>
 </table>
 
+</div>

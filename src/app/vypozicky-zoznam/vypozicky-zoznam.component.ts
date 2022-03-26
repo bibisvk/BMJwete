@@ -12,16 +12,16 @@ export class VypozickyZoznamComponent {
   vypozicky: Vypozicka[] = [];
 
   @Output()
-  upravVypozicku: EventEmitter<Vypozicka> = new EventEmitter<Vypozicka>();
+  upravVypozicku: EventEmitter<number> = new EventEmitter<number>();
 
   @Output()
-  zmazVypozicku: EventEmitter<Vypozicka> = new EventEmitter<Vypozicka>();
+  zmazVypozicku: EventEmitter<number> = new EventEmitter<number>();
 
-  uprav(vypozicka: Vypozicka): void {
-    this.upravVypozicku.emit(vypozicka);
+  uprav(vypozickaId: number): void {
+    this.upravVypozicku.emit(vypozickaId);
   }
 
-  zmaz(vypozicka: Vypozicka): void {
-    this.zmazVypozicku.emit(vypozicka);
+  zmaz(vypozickaId: number): void {
+    this.zmazVypozicku.emit(vypozickaId);
   }
 }

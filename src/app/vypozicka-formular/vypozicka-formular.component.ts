@@ -35,12 +35,12 @@ export class VypozickaFormularComponent {
 
   private naplnForm(vypozicka: Vypozicka): void {
     this.form.controls["v_id"].setValue(vypozicka.v_id);
-    this.form.controls["meno"].setValue(vypozicka.kniha);
-    this.form.controls["priezvisko"].setValue(vypozicka.pouzivatel);
+    this.form.controls["kniha"].setValue(vypozicka.kniha);
+    this.form.controls["pouzivatel"].setValue(vypozicka.pouzivatel);
   }
 
   public pridaj(): void {
-    this.pridajVypozicku.emit({ v_id: Math.random().toString(), kniha: this.form.value.kniha, pouzivatel: this.form.value.pouzivatel});
+    this.pridajVypozicku.emit(this.form.value);
     this.form.reset();
   }
 
@@ -51,7 +51,7 @@ export class VypozickaFormularComponent {
 
   public zrus(): void {
     // @ts-ignore
-    this.vypozicka = undefined;
+//    this.vypozicka = undefined;
     this.form.reset();
   }
 }

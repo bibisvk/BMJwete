@@ -16,6 +16,10 @@ export class VypozickyStrankaComponent implements OnInit{
   constructor(private router: Router, private vypozickaService: VypozickaService) { }
 
   ngOnInit(): void {
+    this.refreshVypoziciek();
+  }
+
+  refreshVypoziciek(): void {
     this.vypozickaService.getVypozicky().subscribe(data => {
       console.log('prislo:', data);
       this.vypozicky = data;
@@ -31,23 +35,33 @@ export class VypozickyStrankaComponent implements OnInit{
     this.vypozickaService.createVypozicka(vypozicka).subscribe( data => {
       console.log('prislo:', data);
     });
+    this.refreshVypoziciek();
   }
 
   uprav(vypozicka: Vypozicka): void {
+    if (vypozicka.v_id !== undefined) {
+      this.vypozickaService.updateVypozicka(vypozicka.v_id, vypozicka).subscribe(data => {
+        console.log('prislo:', data);
+        this.refreshVypoziciek();
+      });
+    }
+    /*
     const index = this.vypozicky.findIndex(vypozickaArray => vypozickaArray.v_id === vypozicka.v_id);
     if (index !== -1) {
       this.vypozicky[index] = vypozicka;
-    }
+    }*/
   }
 
-  upravZoZoznamu(vypozicka: Vypozicka): void {
-    this.vypozickaNaUpravu = vypozicka;
+  upravZoZoznamu(vypozickaId: number): void {
+    this.vypozickaService.getVypozicka(vypozickaId).subscribe(data => {
+      console.log('prislo:', data);
+      this.vypozickaNaUpravu = data;
+    });
   }
 
-  zmazZoZoznamu(vypozicka: Vypozicka): void {
-    const index = this.vypozicky.findIndex(vypozickaArray => vypozickaArray.v_id === vypozicka.v_id);
-    if (index !== -1) {
-      this.vypozicky.splice(index, 1);
-    }
+  zmazZoZoznamu(vypozickaId: number): void {
+    this.vypozickaService.deleteVypozicka(vypozickaId).subscribe(data => {
+      this.refreshVypoziciek();
+    });
   }
 }
