@@ -9,7 +9,6 @@ import {OsobaServiceService} from "../../osoba-service.service";
   styleUrls: ['./osoba-stranka.component.css']
 })
 export class OsobaStrankaComponent implements OnInit{
-
   osoby: OsobaZoznam[] = [];
 
   osobaNaUpravu?: Osoba;
