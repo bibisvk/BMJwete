@@ -14,10 +14,20 @@ export class KnihaServiceService {
   getKnihy(): Observable<KnihaZoznam[]> {
     return this.http.get<KnihaZoznam[]>(`${this.apiUrl}`);
   }
-  getOsoba(knihaId: string): Observable<Kniha> {
+
+  getKniha(knihaId: number): Observable<Kniha> {
     return this.http.get<Kniha>(`${this.apiUrl}/${knihaId}`);
   }
+
   createKniha(kniha: Kniha): Observable<Kniha> {
-    return this.http.post<Kniha>(`${this.apiUrl}`, {id: kniha.k_id, nazov: kniha.nazov, autor: kniha.autor, pocet: kniha.pocet});
+    return this.http.post<Kniha>(`${this.apiUrl}`, {nazov: kniha.nazov, autor: kniha.autor, pocet: kniha.pocet});
+  }
+
+  updateKniha(knihaId: number, kniha: Kniha): Observable<Kniha> {
+    return this.http.put<Kniha>(`${this.apiUrl}/${knihaId}`, {nazov: kniha.nazov, autor: kniha.autor, pocet: kniha.pocet});
+  }
+
+  deleteKniha(knihaId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${knihaId}`);
   }
 }

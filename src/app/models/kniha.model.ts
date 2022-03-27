@@ -1,5 +1,5 @@
 export class Kniha {
-  k_id?: string;
+  k_id?: number;
   nazov: string;
   autor: string;
   pocet: string;
@@ -13,13 +13,15 @@ export class Kniha {
 }
 
 export class KnihaZoznam {
-  id?: string;
-  name: string;
-  contact: string;
+  id?: number;
+  nazov: string;
+  autor: string;
+  pocet: number;
 
   constructor(kniha: KnihaZoznam) {
     this.id = kniha.id;
-    this.name = kniha.name;
-    this.contact = kniha.contact;
+    this.nazov = kniha.nazov;
+    this.autor = kniha.autor;
+    this.pocet = kniha.pocet;
   }
 }

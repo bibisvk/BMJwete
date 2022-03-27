@@ -1,6 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Kniha} from "../models/kniha.model";
-import {Osoba} from "../models/osoba.model";
+import {KnihaZoznam} from "../models/kniha.model";
 
 @Component({
   selector: 'app-knihy-zoznam',
@@ -10,20 +9,20 @@ import {Osoba} from "../models/osoba.model";
 export class KnihyZoznamComponent {
 
   @Input()
-  knihy: Kniha[] = [];
+  knihy: KnihaZoznam[] = [];
 
   @Output()
-  upravKnihu: EventEmitter<Kniha> = new EventEmitter<Kniha>();
+  upravKnihu: EventEmitter<number> = new EventEmitter<number>();
 
   @Output()
-  zmazKnihu: EventEmitter<Kniha> = new EventEmitter<Kniha>();
+  zmazKnihu: EventEmitter<number> = new EventEmitter<number>();
 
-  uprav(kniha: Kniha): void {
-    this.upravKnihu.emit(kniha);
+  uprav(knihaId: number): void {
+    this.upravKnihu.emit(knihaId);
   }
 
-  zmaz(kniha: Kniha): void {
-    this.zmazKnihu.emit(kniha);
+  zmaz(knihaId: number): void {
+    this.zmazKnihu.emit(knihaId);
   }
 
 }

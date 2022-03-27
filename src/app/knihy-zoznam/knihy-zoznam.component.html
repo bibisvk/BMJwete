@@ -21,8 +21,8 @@
     <td>{{ kniha.autor }}</td>
     <td>{{ kniha.pocet }}</td>
     <td>
-      <button>Upraviť</button>
-      <button>Zmazať</button>
+      <button (click)="uprav(kniha.id!)">Upraviť</button>
+      <button (click)="zmaz(kniha.id!)">Zmazať</button>
     </td>
   </tr>
   </tbody>
