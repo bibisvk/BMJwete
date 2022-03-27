@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {Vypozicka} from "../models/vypozicka.model";
+import {Vypozicka, VypozickaZoznam} from "../models/vypozicka.model";
 import {VypozickaService} from "../../vypozicka.service";
 
 @Component({
@@ -9,7 +9,7 @@ import {VypozickaService} from "../../vypozicka.service";
   styleUrls: ['./vypozicky-stranka.component.css']
 })
 export class VypozickyStrankaComponent implements OnInit{
-  vypozicky: Vypozicka[] = [];
+  vypozicky: VypozickaZoznam[] = [];
 
   vypozickaNaUpravu?: Vypozicka;
 
