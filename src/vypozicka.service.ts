@@ -7,7 +7,7 @@ import {Vypozicka} from "./app/models/vypozicka.model";
   providedIn: 'root'
 })
 export class VypozickaService {
-  private apiUrl = 'http://localhost:8080/api/customers';
+  private apiUrl = 'http://localhost:8080/api/borrowings';
 
   constructor(private http: HttpClient) { }
   getVypozicky(): Observable<Vypozicka[]> {
@@ -17,6 +17,10 @@ export class VypozickaService {
     return this.http.get<Vypozicka>(`${this.apiUrl}/${vypozickaId}`);
   }
   createVypozicka(vypozicka: Vypozicka): Observable<Vypozicka> {
-    return this.http.post<Vypozicka>(`${this.apiUrl}`, {v_id: vypozicka.v_id, kniha: vypozicka.kniha, pouzivatel: vypozicka.pouzivatel});
+    return this.http.post<Vypozicka>(`${this.apiUrl}`, {bookId: vypozicka.kniha, customerId: vypozicka.pouzivatel});
+  }
+
+  deleteVypozicka(vypozickaId: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${vypozickaId}`);
   }
 }

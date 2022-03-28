@@ -45,9 +45,9 @@ export class VypozickyStrankaComponent implements OnInit{
   }
 
   zmazZoZoznamu(vypozicka: Vypozicka): void {
-    const index = this.vypozicky.findIndex(vypozickaArray => vypozickaArray.v_id === vypozicka.v_id);
-    if (index !== -1) {
-      this.vypozicky.splice(index, 1);
+    console.log("VYPOZICKA", vypozicka)
+    if (vypozicka?.v_id) {
+      this.vypozickaService.deleteVypozicka(vypozicka.v_id);
     }
   }
 }

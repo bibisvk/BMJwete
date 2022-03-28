@@ -40,7 +40,7 @@ export class VypozickaFormularComponent {
   }
 
   public pridaj(): void {
-    this.pridajVypozicku.emit({ v_id: Math.random().toString(), kniha: this.form.value.kniha, pouzivatel: this.form.value.pouzivatel});
+    this.pridajVypozicku.emit({ kniha: this.form.value.kniha, pouzivatel: this.form.value.pouzivatel});
     this.form.reset();
   }
 

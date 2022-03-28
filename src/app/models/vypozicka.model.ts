@@ -1,8 +1,8 @@
 export class Vypozicka {
 
-  v_id?: String;
-  kniha: string;
-  pouzivatel: string;
+  v_id?: number;
+  kniha: number;
+  pouzivatel: number;
 
   constructor(vypozicka: Vypozicka) {
     this.v_id = vypozicka.v_id;
