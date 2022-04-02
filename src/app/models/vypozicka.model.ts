@@ -1,24 +1,23 @@
 export class Vypozicka {
-
-  v_id?: number;
-  kniha: string;
-  pouzivatel: string;
+  id?: number;
+  kniha: number;
+  pouzivatel: number;
 
   constructor(vypozicka: Vypozicka) {
-    this.v_id = vypozicka.v_id;
+    this.id = vypozicka.id;
     this.kniha = vypozicka.kniha;
     this.pouzivatel = vypozicka.pouzivatel;
   }
 
 }
 export class VypozickaZoznam {
-  v_id?: number;
-  kniha: string;
-  pouzivatel: string;
+  borrowingId?: number;
+  bookId: number;
+  customerId: number;
 
   constructor(vypozicka: VypozickaZoznam) {
-    this.v_id = vypozicka.v_id;
-    this.kniha = vypozicka.kniha;
-    this.pouzivatel = vypozicka.pouzivatel;
+    this.borrowingId = vypozicka.borrowingId;
+    this.bookId = vypozicka.bookId;
+    this.customerId = vypozicka.customerId;
   }
 }

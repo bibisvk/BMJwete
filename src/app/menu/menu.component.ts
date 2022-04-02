@@ -25,5 +25,4 @@ export class MenuComponent {
       this.router.navigate(['/vypozicka']);
     }
   }
-
 }

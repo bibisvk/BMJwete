@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {Vypozicka} from "../models/vypozicka.model";
+import {Vypozicka, VypozickaZoznam} from "../models/vypozicka.model";
 import {VypozickaService} from "../../vypozicka.service";
 
 @Component({
@@ -9,7 +9,7 @@ import {VypozickaService} from "../../vypozicka.service";
   styleUrls: ['./vypozicky-stranka.component.css']
 })
 export class VypozickyStrankaComponent implements OnInit{
-  vypozicky: Vypozicka[] = [];
+  vypozicky: VypozickaZoznam[] = [];
 
   vypozickaNaUpravu?: Vypozicka;
 
@@ -31,25 +31,19 @@ export class VypozickyStrankaComponent implements OnInit{
   }
 
   pridaj(vypozicka: Vypozicka): void {
-    //  this.vypozicky.push(vypozicka);
     this.vypozickaService.createVypozicka(vypozicka).subscribe( data => {
       console.log('prislo:', data);
+      this.refreshVypoziciek();
     });
-    this.refreshVypoziciek();
   }
 
   uprav(vypozicka: Vypozicka): void {
-    if (vypozicka.v_id !== undefined) {
-      this.vypozickaService.updateVypozicka(vypozicka.v_id, vypozicka).subscribe(data => {
+    if (vypozicka.id !== undefined) {
+      this.vypozickaService.updateVypozicka(vypozicka.id, vypozicka).subscribe(data => {
         console.log('prislo:', data);
         this.refreshVypoziciek();
       });
     }
-    /*
-    const index = this.vypozicky.findIndex(vypozickaArray => vypozickaArray.v_id === vypozicka.v_id);
-    if (index !== -1) {
-      this.vypozicky[index] = vypozicka;
-    }*/
   }
 
   upravZoZoznamu(vypozickaId: number): void {

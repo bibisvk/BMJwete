@@ -27,16 +27,16 @@ export class VypozickaFormularComponent {
 
   constructor() {
     this.form = new FormGroup({
-      v_id: new FormControl(null),
+      id: new FormControl(null),
       kniha: new FormControl(null),
       pouzivatel: new FormControl(null)
     });
   }
 
   private naplnForm(vypozicka: Vypozicka): void {
-    this.form.controls["v_id"].setValue(vypozicka.v_id);
-    this.form.controls["kniha"].setValue(vypozicka.kniha);
+    this.form.controls["id"].setValue(vypozicka.id);
     this.form.controls["pouzivatel"].setValue(vypozicka.pouzivatel);
+    this.form.controls["kniha"].setValue(vypozicka.kniha);
   }
 
   public pridaj(): void {
@@ -50,8 +50,6 @@ export class VypozickaFormularComponent {
   }
 
   public zrus(): void {
-    // @ts-ignore
-//    this.vypozicka = undefined;
     this.form.reset();
   }
 }

@@ -19,12 +19,12 @@
 
   <tbody>
   <tr *ngFor="let vypozicka of vypozicky">
-    <td>{{ vypozicka.v_id }}</td>
-    <td>{{ vypozicka.kniha }}</td>
-    <td>{{ vypozicka.pouzivatel }}</td>
+    <td>{{ vypozicka.borrowingId }}</td>
+    <td>{{ vypozicka.bookId }}</td>
+    <td>{{ vypozicka.customerId }}</td>
     <td>
-      <button class="m-2 btn-warning" (click)="uprav(vypozicka.v_id!)">Upraviť</button>
-      <button class="m-2 btn-warning" (click)="zmaz(vypozicka.v_id!)">Zmazať</button>
+      <button class="m-2 btn-warning" (click)="uprav(vypozicka.borrowingId!)">Upraviť</button>
+      <button class="m-2 btn-warning" (click)="zmaz(vypozicka.borrowingId!)">Zmazať</button>
     </td>
   </tr>
   </tbody>

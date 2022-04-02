@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Vypozicka} from "../models/vypozicka.model";
+import {VypozickaZoznam} from "../models/vypozicka.model";
 
 @Component({
   selector: 'app-vypozicky-zoznam',
@@ -9,7 +9,7 @@ import {Vypozicka} from "../models/vypozicka.model";
 export class VypozickyZoznamComponent {
 
   @Input()
-  vypozicky: Vypozicka[] = [];
+  vypozicky: VypozickaZoznam[] = [];
 
   @Output()
   upravVypozicku: EventEmitter<number> = new EventEmitter<number>();
