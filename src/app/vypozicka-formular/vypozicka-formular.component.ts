@@ -45,6 +45,7 @@ export class VypozickaFormularComponent {
   }
 
   public uprav(): void {
+    console.log(this.form.value);
     this.upravVypozicku.emit(this.form.value);
     this.form.reset();
   }
