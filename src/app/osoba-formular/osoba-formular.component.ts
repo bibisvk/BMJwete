@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Osoba} from "../models/osoba.model";
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-osoba-formular',
@@ -27,8 +27,8 @@ export class OsobaFormularComponent {
   constructor() {
     this.form = new FormGroup({
       id: new FormControl(null),
-      meno: new FormControl(null),
-      priezvisko: new FormControl(null)
+      meno: new FormControl(null, Validators.required),
+      priezvisko: new FormControl(null, [Validators.minLength(3)])
     });
   }
 
@@ -39,8 +39,11 @@ export class OsobaFormularComponent {
   }
 
   public pridaj(): void {
-    this.pridajOsobu.emit(this.form.value);
-    this.form.reset();
+    if(this.form.valid){
+      this.pridajOsobu.emit(this.form.value);
+      this.form.reset();
+    }
+
   }
 
   public uprav(): void {

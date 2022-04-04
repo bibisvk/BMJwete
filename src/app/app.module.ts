@@ -21,6 +21,9 @@ import { OsobyZoznamComponent } from './osoby-zoznam/osoby-zoznam.component';
 import {KnihaFormularComponent} from "./kniha-formular/kniha-formular.component";
 import {KnihaStrankaComponent} from "./kniha-stranka/kniha-stranka.component";
 import {KnihyZoznamComponent} from "./knihy-zoznam/knihy-zoznam.component";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
 
 
 @NgModule({
@@ -39,14 +42,17 @@ import {KnihyZoznamComponent} from "./knihy-zoznam/knihy-zoznam.component";
     VypozickyZoznamComponent,
     MenuComponent
   ],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        ReactiveFormsModule,
-        RouterModule,
-        AppRoutingModule,
-        HttpClientModule
-    ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    AppRoutingModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatFormFieldModule,
+    MatInputModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

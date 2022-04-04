@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import {Vypozicka, VypozickaZoznam} from "../models/vypozicka.model";
+import {Vypozicka} from "../models/vypozicka.model";
 import {VypozickaService} from "../../vypozicka.service";
 
 @Component({
@@ -9,17 +9,13 @@ import {VypozickaService} from "../../vypozicka.service";
   styleUrls: ['./vypozicky-stranka.component.css']
 })
 export class VypozickyStrankaComponent implements OnInit{
-  vypozicky: VypozickaZoznam[] = [];
+  vypozicky: Vypozicka[] = [];
 
   vypozickaNaUpravu?: Vypozicka;
 
   constructor(private router: Router, private vypozickaService: VypozickaService) { }
 
   ngOnInit(): void {
-    this.refreshVypoziciek();
-  }
-
-  refreshVypoziciek(): void {
     this.vypozickaService.getVypozicky().subscribe(data => {
       console.log('prislo:', data);
       this.vypozicky = data;
@@ -31,31 +27,27 @@ export class VypozickyStrankaComponent implements OnInit{
   }
 
   pridaj(vypozicka: Vypozicka): void {
+    //  this.vypozicky.push(vypozicka);
     this.vypozickaService.createVypozicka(vypozicka).subscribe( data => {
       console.log('prislo:', data);
-      this.refreshVypoziciek();
     });
   }
 
   uprav(vypozicka: Vypozicka): void {
-    if (vypozicka.id !== undefined) {
-      this.vypozickaService.updateVypozicka(vypozicka.id, vypozicka).subscribe(data => {
-        console.log('prislo:', data);
-        this.refreshVypoziciek();
-      });
+    const index = this.vypozicky.findIndex(vypozickaArray => vypozickaArray.v_id === vypozicka.v_id);
+    if (index !== -1) {
+      this.vypozicky[index] = vypozicka;
     }
   }
 
-  upravZoZoznamu(vypozickaId: number): void {
-    this.vypozickaService.getVypozicka(vypozickaId).subscribe(data => {
-      console.log('prislo:', data);
-      this.vypozickaNaUpravu = data;
-    });
+  upravZoZoznamu(vypozicka: Vypozicka): void {
+    this.vypozickaNaUpravu = vypozicka;
   }
 
-  zmazZoZoznamu(vypozickaId: number): void {
-    this.vypozickaService.deleteVypozicka(vypozickaId).subscribe(data => {
-      this.refreshVypoziciek();
-    });
+  zmazZoZoznamu(vypozicka: Vypozicka): void {
+    console.log("VYPOZICKA", vypozicka)
+    if (vypozicka?.v_id) {
+      this.vypozickaService.deleteVypozicka(vypozicka.v_id);
+    }
   }
 }
