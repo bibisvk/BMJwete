@@ -37,6 +37,6 @@ export class OsobaServiceService {
     formData.append("subor",subor);
 
   }
-  
+
    */
 }
