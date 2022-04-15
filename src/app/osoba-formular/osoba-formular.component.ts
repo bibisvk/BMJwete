@@ -24,7 +24,9 @@ export class OsobaFormularComponent {
 
   form: FormGroup;
 
-  constructor() {
+
+  // @ts-ignore
+  constructor(private osobaService: osobaService) {
     this.form = new FormGroup({
       id: new FormControl(null),
       meno: new FormControl(null, Validators.required),
@@ -53,6 +55,17 @@ export class OsobaFormularComponent {
 
   public zrus(): void {
     this.form.reset();
+  }
+  public spracujSubor(files: any){
+    let fs: FileList = files.target.files;
+    console.log("mam, posielam ...", fs);
+    let subor = fs.item(0);
+
+    this.osobaService.nahrajSUbor(subor).subscribe(data =>{
+      console.log("Ok");
+    }, (error: any) =>{
+      console.log(error);
+    })
   }
 
 }

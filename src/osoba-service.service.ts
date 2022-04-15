@@ -31,4 +31,12 @@ export class OsobaServiceService {
   deleteOsoba(osobaId: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${osobaId}`);
   }
+  /*
+  nahrajSubor(subor: File): Observable<Object>{
+    const formData: FormData = new FormData();
+    formData.append("subor",subor);
+
+  }
+  
+   */
 }

@@ -2,7 +2,7 @@
 
 <form [formGroup]="form">
 
-<!--
+
   <label>Meno:
     <input formControlName="meno">
   </label>
@@ -13,8 +13,13 @@
     <input formControlName="priezvisko">
   </label>
   <br>
-  -->
 
+  <label for="file">
+    Foto
+    <input type="file" id="file" (change)="spracujSubor($event)">
+  </label>
+
+<!--
   <mat-form-field appearance="fill">
     <mat-label>Meno</mat-label>
     <input matInput formControlName="meno" placeholder="Zadaj meno...">
@@ -27,8 +32,9 @@
     <input matInput formControlName="priezvisko" placeholder="Zadaj priezvisko...">
   </mat-form-field>
 
-<br>
 
+<br>
+--->
   <button (click)="pridaj()" *ngIf="form.value.id === null" [disabled]="!this.form.valid">pridaj</button>
   <button (click)="uprav()" *ngIf="form.value.id !== null" [disabled]="!this.form.valid">uprav</button>
   <button (click)="zrus()">zrus</button>

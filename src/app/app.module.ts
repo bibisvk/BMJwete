@@ -22,8 +22,7 @@ import {KnihaFormularComponent} from "./kniha-formular/kniha-formular.component"
 import {KnihaStrankaComponent} from "./kniha-stranka/kniha-stranka.component";
 import {KnihyZoznamComponent} from "./knihy-zoznam/knihy-zoznam.component";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
+import {ButtonModule} from "primeng/button";
 
 
 @NgModule({
@@ -50,8 +49,7 @@ import {MatInputModule} from "@angular/material/input";
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatFormFieldModule,
-    MatInputModule
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

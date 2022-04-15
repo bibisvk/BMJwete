@@ -1,4 +1,5 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
+// @ts-ignore
 import {VypozickaZoznam} from "../models/vypozicka.model";
 
 @Component({

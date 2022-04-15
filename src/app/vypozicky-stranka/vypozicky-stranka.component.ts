@@ -40,13 +40,16 @@ export class VypozickyStrankaComponent implements OnInit{
     }
   }
 
-  upravZoZoznamu(vypozicka: Vypozicka): void {
+  upravZoZoznamu(vypozicka: number): void {
+    // @ts-ignore
     this.vypozickaNaUpravu = vypozicka;
   }
 
-  zmazZoZoznamu(vypozicka: Vypozicka): void {
+  zmazZoZoznamu(vypozicka: number): void {
     console.log("VYPOZICKA", vypozicka)
+    // @ts-ignore
     if (vypozicka?.v_id) {
+      // @ts-ignore
       this.vypozickaService.deleteVypozicka(vypozicka.v_id);
     }
   }
