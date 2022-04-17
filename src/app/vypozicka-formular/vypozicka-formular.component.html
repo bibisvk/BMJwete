@@ -3,26 +3,31 @@
 </div>
 <div class="m-5 d-flex justify-content-center">
   <form [formGroup]="form">
-
+  <div class="form-row flex-row-reverse">
     <label class="m-2">IDVypozicky:
       <input formControlName="id">
     </label>
     <br>
+  </div>
 
+    <div class="form-row flex-row-reverse">
     <label class="m-2">IDZakaznik:
       <input formControlName="pouzivatel">
     </label>
     <br>
+    </div>
 
+    <div class="form-row flex-row-reverse">
     <label class="m-2">IDKniha:
       <input formControlName="kniha">
     </label>
     <br>
+    </div>
 
 <div class="m-5 d-flex justify-content-center">
-    <button class="m-2 btn-warning" (click)="pridaj()" *ngIf="form.value.id === null">pridaj</button>
-    <button class="m-2 btn-warning" (click)="uprav()" *ngIf="form.value.id !== null">uprav</button>
-    <button class="m-2 btn-warning" (click)="zrus()">zrus</button>
+    <button class="m-2 btn-info btn-lg" (click)="pridaj()" *ngIf="form.value.id === null">pridaj</button>
+    <button class="m-2 btn-info btn-lg" (click)="uprav()" *ngIf="form.value.id !== null">uprav</button>
+    <button class="m-2 btn-info btn-lg" (click)="zrus()">zrus</button>
 </div>
   </form>
 

@@ -1,11 +1,11 @@
 <div class="m-5">
-  <div class="d-flex justify-content-center">
+  <div class="d-flex justify-content-center p-3 mb-2 bg-info text-dark">
     <h1>Vypozicky</h1>
   </div>
 
 <app-vypozicka-formular [vypozicka]="vypozickaNaUpravu!"
                     (pridajVypozicku)="pridaj($event)"
-                    (upravVypozicku)="uprav($event)">
+                    (upravVypozicku)="uprav($event)"  >
 </app-vypozicka-formular>
 
 <app-vypozicky-zoznam [vypozicky]="vypozicky"
@@ -17,7 +17,7 @@
 <br>
 
 <div class="d-flex justify-content-center">
-  <button class="m-2 btn-warning" (click)="chodSpat()">SPÄŤ</button>
+  <button class="m-2 btn-info btn-lg" (click)="chodSpat()">SPÄŤ</button>
 </div>
 
 </div>
