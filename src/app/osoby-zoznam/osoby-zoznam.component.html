@@ -1,5 +1,6 @@
+<div class="m-5">
 <div class="d-flex justify-content-center">
-  <h1>Osoby - zoznam</h1>
+  <h1 class="mb-5">Osoby - zoznam</h1>
 </div>
 
 
@@ -7,12 +8,12 @@
   Zoznam osôb je prázdny.
 </div>
 
-<table class="table table-hover container" *ngIf="osoby.length > 0">
+<table class="table table-striped container" *ngIf="osoby.length > 0">
   <thead>
   <tr>
-    <th>Meno a priezvisko</th>
-    <th>Kontakt</th>
-    <th></th>
+    <th scope="col">Meno a priezvisko</th>
+    <th scope="col">Kontakt</th>
+    <th scope="col"></th>
   </tr>
   </thead>
 
@@ -21,10 +22,11 @@
     <td>{{ osoba.firstName }} {{osoba.lastName}}</td>
     <td>{{ osoba.contact }}</td>
     <td>
-      <button (click)="uprav(osoba.id!)">Upraviť</button>
-      <button (click)="zmaz(osoba.id!)">Zmazať</button>
+      <button class="m-2 btn-info btn-lg" (click)="uprav(osoba.id!)">Upraviť</button>
+      <button class="m-2 btn-info btn-lg" (click)="zmaz(osoba.id!)">Zmazať</button>
     </td>
   </tr>
   </tbody>
 </table>
 
+</div>
