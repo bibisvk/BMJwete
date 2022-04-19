@@ -37,8 +37,8 @@ export class KnihaStrankaComponent implements OnInit{
     });
   }
   uprav(kniha: Kniha): void {
-    if (kniha.k_id !== undefined) {
-      this.knihaService.updateKniha(kniha.k_id, kniha).subscribe(data => {
+    if (kniha.id !== undefined) {
+      this.knihaService.updateKniha(kniha.id, kniha).subscribe(data => {
         console.log('prislo:', data);
         this.refreshKnih();
       });

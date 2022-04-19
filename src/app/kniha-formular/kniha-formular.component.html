@@ -1,24 +1,36 @@
-<h1>Kniha formulár</h1>
+<div class="d-flex justify-content-center m-5">
+  <h1 class="m-4">Knihy - formular</h1>
+</div>
+
+<div class="d-flex justify-content-center m-5">
 
 <form [formGroup]="form">
-  <label>Nazov:
-    <input formControlName="nazov">
+  <div class="form-row flex-row-reverse">
+  <label class="m-2">Nazov:
+    <input class="rounded shadow" formControlName="nazov">
   </label>
   <br>
+  </div>
 
-  <label>autor:
-    <input formControlName="autor">
+  <div class="form-row flex-row-reverse">
+  <label class="m-2">autor:
+    <input class="rounded shadow" formControlName="autor">
   </label>
   <br>
+  </div>
 
-  <label>pocet:
-    <input formControlName="pocet">
+  <div class="form-row flex-row-reverse">
+  <label class="m-2">pocet:
+    <input class="rounded shadow" formControlName="pocet">
   </label>
   <br>
+  </div>
 
-  <button (click)="pridaj()" *ngIf="form.value.k_id === null">pridaj</button>
-  <button (click)="uprav()" *ngIf="form.value.k_id !== null">uprav</button>
-  <button (click)="zrus()">zrus</button>
-
+  <div class="d-flex justify-content-center m-5 ">
+  <button class="m-2 btn-info btn-lg" (click)="pridaj()" *ngIf="form.value.k_id === null">pridaj</button>
+  <button class="m-2 btn-info btn-lg" (click)="uprav()" *ngIf="form.value.k_id !== null">uprav</button>
+  <button class="m-2 btn-info btn-lg" (click)="zrus()">zrus</button>
+  </div>
 </form>
 
+</div>

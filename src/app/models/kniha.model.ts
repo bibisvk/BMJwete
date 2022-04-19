@@ -1,11 +1,11 @@
 export class Kniha {
-  k_id?: number;
+  id?: number;
   nazov: string;
   autor: string;
   pocet: string;
 
   constructor(kniha: Kniha) {
-    this.k_id = kniha.k_id;
+    this.id = kniha.id;
     this.nazov = kniha.nazov;
     this.autor = kniha.autor;
     this.pocet = kniha.pocet;
@@ -14,14 +14,14 @@ export class Kniha {
 
 export class KnihaZoznam {
   id?: number;
-  nazov: string;
-  autor: string;
-  pocet: number;
+  title: string;
+  authorFirstname: string;
+  count: number;
 
   constructor(kniha: KnihaZoznam) {
     this.id = kniha.id;
-    this.nazov = kniha.nazov;
-    this.autor = kniha.autor;
-    this.pocet = kniha.pocet;
+    this.title = kniha.title;
+    this.authorFirstname = kniha.authorFirstname;
+    this.count = kniha.count;
   }
 }

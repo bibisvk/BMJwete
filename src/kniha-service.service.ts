@@ -7,7 +7,7 @@ import {Observable} from "rxjs";
   providedIn: 'root'
 })
 export class KnihaServiceService {
-  private apiUrl = 'http://localhost:8080/api/customers';
+  private apiUrl = 'http://localhost:8080/api/books';
 
   constructor(private http: HttpClient) { }
 
@@ -20,11 +20,11 @@ export class KnihaServiceService {
   }
 
   createKniha(kniha: Kniha): Observable<Kniha> {
-    return this.http.post<Kniha>(`${this.apiUrl}`, {nazov: kniha.nazov, autor: kniha.autor, pocet: kniha.pocet});
+    return this.http.post<Kniha>(`${this.apiUrl}`, {title: kniha.nazov, authorFirstname: kniha.autor, count: kniha.pocet});
   }
 
   updateKniha(knihaId: number, kniha: Kniha): Observable<Kniha> {
-    return this.http.put<Kniha>(`${this.apiUrl}/${knihaId}`, {nazov: kniha.nazov, autor: kniha.autor, pocet: kniha.pocet});
+    return this.http.put<Kniha>(`${this.apiUrl}/${knihaId}`, {nazov: kniha.nazov, authorFirstname: kniha.autor, pocet: kniha.pocet});
   }
 
   deleteKniha(knihaId: number): Observable<void> {

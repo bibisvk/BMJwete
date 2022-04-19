@@ -34,7 +34,7 @@ export class KnihaFormularComponent {
   }
 
   private naplnForm(kniha: Kniha): void {
-    this.form.controls["k_id"].setValue(kniha.k_id);
+    this.form.controls["id"].setValue(kniha.id);
     this.form.controls["nazov"].setValue(kniha.nazov);
     this.form.controls["autor"].setValue(kniha.autor);
     this.form.controls["pocet"].setValue(kniha.pocet);

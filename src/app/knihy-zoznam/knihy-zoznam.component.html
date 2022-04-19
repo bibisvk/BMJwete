@@ -1,29 +1,32 @@
-<h1>Knihy - zoznam</h1>
+<div class="m-5">
+  <div class="d-flex justify-content-center">
+    <h1 class="mb-5">Knihy - zoznam</h1>
+  </div>
 
-<div *ngIf="!knihy || knihy?.length === 0">
+<div class="d-flex justify-content-center" *ngIf="!knihy || knihy?.length === 0">
   Zoznam kníh je prázdny.
 </div>
 
 
-<table class="table" *ngIf="knihy.length > 0">
+<table class="table table-striped container" *ngIf="knihy.length > 0">
   <thead>
   <tr>
-    <th>Nazov</th>
-    <th>Autor</th>
-    <th>Pocet</th>
-    <th></th>
+    <th scope="col">Nazov</th>
+    <th scope="col">Autor</th>
+    <th scope="col">Pocet</th>
   </tr>
   </thead>
 
   <tbody>
   <tr *ngFor="let kniha of knihy">
-    <td>{{ kniha.nazov }}</td>
-    <td>{{ kniha.autor }}</td>
-    <td>{{ kniha.pocet }}</td>
+    <td>{{ kniha.title }}</td>
+    <td>{{ kniha.authorFirstname }}</td>
+    <td>{{ kniha.count }}</td>
     <td>
-      <button (click)="uprav(kniha.id!)">Upraviť</button>
-      <button (click)="zmaz(kniha.id!)">Zmazať</button>
+      <button class="m-2 btn-info btn-lg" (click)="uprav(kniha.id!)">Upraviť</button>
+      <button class="m-2 btn-info btn-lg" (click)="zmaz(kniha.id!)">Zmazať</button>
     </td>
   </tr>
   </tbody>
 </table>
+</div>
